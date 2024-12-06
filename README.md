@@ -1,1 +1,1 @@
-# godot-game-template
+# game-template

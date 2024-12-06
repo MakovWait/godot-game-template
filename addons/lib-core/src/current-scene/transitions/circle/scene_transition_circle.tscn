@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8xy0b6ceu3ub"]
+
+[ext_resource type="Script" uid="uid://7u8r2ews2kcn" path="res://addons/lib-core/src/current-scene/transitions/circle/scene_transition_circle.gd" id="1_sn1os"]
+[ext_resource type="Shader" path="res://addons/lib-core/src/current-scene/transitions/circle/scene_transition_circle.gdshader" id="2_v58j5"]
+[ext_resource type="Script" path="res://addons/lib-core/src/current-scene/transitions/circle/color_rect.gd" id="3_5j0nk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_he7ry"]
+shader = ExtResource("2_v58j5")
+shader_parameter/progress = 0.0
+shader_parameter/ratio = null
+
+[node name="SceneTransitionCircle" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_sn1os")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_he7ry")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.854902, 0.854902, 0.854902, 1)
+script = ExtResource("3_5j0nk")
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center][tornado radius=1.0 freq=1.0]loading..."
+fit_content = true
+autowrap_mode = 0
+
+[node name="MinIdleTimer" type="Timer" parent="."]
+one_shot = true

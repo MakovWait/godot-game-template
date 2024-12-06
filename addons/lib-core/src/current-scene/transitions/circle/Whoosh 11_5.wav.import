@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt20q3my56o7o"
+path="res://.godot/imported/Whoosh 11_5.wav-122739ab4c96008dffee464da40e7cc1.sample"
+
+[deps]
+
+source_file="res://addons/lib-core/src/current-scene/transitions/circle/Whoosh 11_5.wav"
+dest_files=["res://.godot/imported/Whoosh 11_5.wav-122739ab4c96008dffee464da40e7cc1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

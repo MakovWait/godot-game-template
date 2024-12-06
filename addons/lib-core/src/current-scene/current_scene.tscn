@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1n5ancoab2nf"]
+
+[ext_resource type="Script" uid="uid://cm6kpr4oklnsi" path="res://addons/lib-core/src/current-scene/current_scene.gd" id="1_4vmbr"]
+
+[node name="CurrentScene" type="Node"]
+process_mode = 3
+script = ExtResource("1_4vmbr")
