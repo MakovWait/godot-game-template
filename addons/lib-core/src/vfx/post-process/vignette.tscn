@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://jd0pdntdhwe7"]
+
+[ext_resource type="Shader" path="res://addons/lib-core/shaders/vignette.gdshader" id="1_1j6v5"]
+[ext_resource type="Script" path="res://addons/lib-core/src/vfx/post-process/vignette.gd" id="1_gmhhn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjaa"]
+resource_local_to_scene = true
+shader = ExtResource("1_1j6v5")
+shader_parameter/vignette_intensity = 0.682
+shader_parameter/vignette_opacity = 0.115
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[node name="Vignette" type="CanvasLayer"]
+script = ExtResource("1_gmhhn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hfjaa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -6,6 +6,6 @@
 [sub_resource type="Resource" id="Resource_kvxwe"]
 script = ExtResource("2_04gg8")
 
-[node name="Boot" type="Node2D"]
+[node name="Boot" type="Node"]
 script = ExtResource("1_jmc8s")
 constants = SubResource("Resource_kvxwe")

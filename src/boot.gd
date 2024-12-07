@@ -1,5 +1,5 @@
 class_name Boot
-extends Node2D
+extends Node
 
 @export var constants: Constants
 
