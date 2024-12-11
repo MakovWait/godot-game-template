@@ -52,6 +52,10 @@ folder_colors={
 "res://trash/": "gray"
 }
 
+[gui]
+
+theme/custom="res://theme/theme.tres"
+
 [input]
 
 restart_scene={
