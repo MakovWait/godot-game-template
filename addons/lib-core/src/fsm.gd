@@ -1,9 +1,45 @@
 class_name FSM
+## [codeblock]
+## enum State {
+##     None, 
+##     Booting
+## }
+## 
+## func _ready() -> void:
+##     var fsm := FSM.new(State.None, func(fsm: FSM) -> Array[FSM.IState]:
+##         return [
+##             FSM.State.new(
+##                 State.None
+##             ).on_exit(
+##                 func() -> void: print("bye!")
+##             ).bind_process(
+##                 func(delta: float) -> void: print("process %s" % delta)
+##             ),
+##             
+##             FSM.State.new(
+##                 State.Booting, 
+##                 func(booting: FSM.State) -> void:
+##                     booting.on_enter(
+##                         func() -> void: print("hello!")
+##                     )
+##                     booting.bind_process(func(delta: float) -> void:
+##                         print("process %s" % delta)
+##                     )
+##                     \
+##             )
+##         ]
+##     )
+##     
+##     fsm.go_to(State.Booting)
+##     fsm.process(delta)
+## [/codeblock]
+
 
 var _default_state: IState
 var _prev_state: IState
 var _current_state: IState
 var _states: Dictionary = {}
+
 
 func _init(null_id: Variant, ctor: Callable) -> void:
 	var states = ctor.call(self)
@@ -27,6 +63,12 @@ func inspect_bind(bind_type: Script, inspect: Callable) -> void:
 	inspect.call(bind)
 
 
+## shortcut for. may became built-in in the future
+## [codeblock]
+##var bind: FSM.BProcess = get_bind(BProcess)
+##if bind != null:
+##    bind.invoke(delta)
+## [/codeblock]
 func process(delta: float) -> void:
 	var bind: BProcess = get_bind(BProcess)
 	if bind != null:
@@ -118,6 +160,7 @@ class State extends IState:
 		return self
 
 
+## B - Bind
 class _BCallable:
 	var _callable: Callable
 	
