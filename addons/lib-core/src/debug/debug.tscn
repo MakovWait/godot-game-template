@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://addons/lib-core/src/debug/debug.gd" id="1_jbvdv"]
 
 [node name="Debug" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_jbvdv")
