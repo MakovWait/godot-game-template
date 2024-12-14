@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Context="*res://addons/use-context/context_node.gd"
+Debug="*res://addons/lib-core/./src/debug/debug.tscn"
 PauseTree="*res://addons/lib-core/./src/pause_tree.gd"
 CurrentScene="*res://addons/lib-core/./src/current-scene/current_scene.tscn"
 

@@ -54,3 +54,5 @@ bld/
 [Ll]og/
 [Ll]ogs/
 sandbox/
+
+!/addons/lib-core/src/debug
