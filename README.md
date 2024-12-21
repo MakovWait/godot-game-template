@@ -1,5 +1,5 @@
 # game-template
 
 ```bash
-godots exec -s plug.gd install
+godots exec -- -s plug.gd install
 ```
