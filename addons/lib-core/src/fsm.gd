@@ -28,9 +28,11 @@ func inspect_bind(bind_type: Script, inspect: Callable) -> void:
 
 
 func process(delta: float) -> void:
-	var bind: BProcess = get_bind(BProcess)
-	if bind != null:
-		bind.invoke(delta)
+	_current_state.process(delta)
+
+
+func physics_process(delta: float) -> void:
+	_current_state.physics_process(delta)
 
 
 func back() -> void:
@@ -66,6 +68,12 @@ class IState:
 	func get_bind(bind_type: Script) -> Variant:
 		return null
 
+	func process(delta: float) -> void:
+		pass
+	
+	func physics_process(delta: float) -> void:
+		pass
+
 	func enter() -> void:
 		pass
 	
@@ -81,6 +89,8 @@ class State extends IState:
 	var _id: Variant
 	var _on_enter := func(): pass
 	var _on_exit := func(): pass
+	var _on_process := func(delta: float) -> void: pass
+	var _on_physics_process := func(delta: float) -> void: pass
 	var _binds: Dictionary = {}
 	
 	func _init(id: Variant, build: Callable = func(_this): pass) -> void:
@@ -96,6 +106,12 @@ class State extends IState:
 	func exit() -> void:
 		_on_exit.call()
 
+	func process(delta: float) -> void:
+		_on_process.call(delta)
+	
+	func physics_process(delta: float) -> void:
+		_on_physics_process.call(delta)
+
 	func get_bind(bind_type: Script) -> Variant:
 		return _binds.get(bind_type)
 
@@ -107,8 +123,13 @@ class State extends IState:
 		return self
 	
 	func bind_process(callable: Callable) -> State:
-		return self.bind(BProcess.new(callable))
-	
+		_on_process = callable
+		return self
+
+	func bind_physics_process(callable: Callable) -> State:
+		_on_physics_process = callable
+		return self
+
 	func on_enter(callable: Callable) -> State:
 		_on_enter = callable
 		return self
@@ -123,8 +144,3 @@ class _BCallable:
 	
 	func _init(callable: Callable) -> void:
 		_callable = callable
-
-
-class BProcess extends _BCallable:
-	func invoke(delta: float) -> void:
-		_callable.call(delta)
