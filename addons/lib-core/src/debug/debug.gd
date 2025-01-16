@@ -7,6 +7,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(&"restart_game"):
+		EngineDebugger.send_message("debug:restart_game", [])
 	if OS.is_debug_build() and Input.is_action_just_pressed(&"restart_scene"):
 		PauseTree.clear()
 		CurrentScene.restart()

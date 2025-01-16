@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqao4dfnthsli"]
+
+[ext_resource type="Script" path="res://addons/lib-core/src/vieport-layer/viewport_layer.gd" id="1_7pc6p"]
+
+[node name="ViewportLayer" type="CanvasLayer" node_paths=PackedStringArray("_viewport", "_root", "_camera")]
+script = ExtResource("1_7pc6p")
+_viewport = NodePath("SubViewport")
+_root = NodePath("Root")
+_camera = NodePath("SubViewport/Camera2D")
+
+[node name="Root" type="Node2D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]

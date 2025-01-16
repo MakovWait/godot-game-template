@@ -22,6 +22,13 @@ func _use():
 	pass
 
 
+func _use_import_plugin(plugin: EditorImportPlugin):
+	add_import_plugin(plugin)
+	on_cleanup(func():
+		remove_import_plugin(plugin)
+	)
+
+
 func _use_inspector_plugin(inspector: EditorInspectorPlugin):
 	add_inspector_plugin(inspector)
 	on_cleanup(func():
@@ -33,4 +40,11 @@ func _use_autoload_singleton(name: String, path: String):
 	add_autoload_singleton(name, path)
 	on_cleanup(func():
 		remove_autoload_singleton(name)
+	)
+
+
+func _use_debugger_plugin(script: EditorDebuggerPlugin):
+	add_debugger_plugin(script)
+	on_cleanup(func():
+		remove_debugger_plugin(script)
 	)
