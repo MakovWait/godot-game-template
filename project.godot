@@ -22,6 +22,7 @@ Debug="*res://addons/lib-core/./src/debug/debug.tscn"
 PauseTree="*res://addons/lib-core/./src/pause_tree.gd"
 CurrentScene="*res://addons/lib-core/./src/current-scene/current_scene.tscn"
 PortalHub="*res://addons/lib-core/./src/portal/portal_hub.gd"
+GamePlugins="*res://addons/lib-game-plugins/./src/game_plugins.gd"
 
 [debug]
 
@@ -43,7 +44,7 @@ project/assembly_name="game-template"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/expand-region/plugin.cfg", "res://addons/find-everywhere/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/lib-core/plugin.cfg", "res://addons/lib-scene-source/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/resource-viewer/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/use-context/plugin.cfg")
+enabled=PackedStringArray("res://addons/expand-region/plugin.cfg", "res://addons/find-everywhere/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/lib-core/plugin.cfg", "res://addons/lib-game-plugins/plugin.cfg", "res://addons/lib-palette-importer/plugin.cfg", "res://addons/lib-scene-source/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/resource-viewer/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/use-context/plugin.cfg")
 
 [file_customization]
 

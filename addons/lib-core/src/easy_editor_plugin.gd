@@ -48,3 +48,17 @@ func _use_debugger_plugin(script: EditorDebuggerPlugin):
 	on_cleanup(func():
 		remove_debugger_plugin(script)
 	)
+
+
+func _use_tool_menu_item(name: String, callable: Callable) -> void:
+	add_tool_menu_item(name, callable)
+	on_cleanup(func():
+		remove_tool_menu_item(name)
+	)
+
+
+func _use_tool_submenu_item(name: String, submenu: PopupMenu) -> void:
+	add_tool_submenu_item(name, submenu)
+	on_cleanup(func():
+		remove_tool_menu_item(name)
+	)
