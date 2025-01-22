@@ -56,3 +56,4 @@ bld/
 sandbox/
 
 !/addons/lib-core/src/debug
+!/builds/.gdignore
