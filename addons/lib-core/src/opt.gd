@@ -1,8 +1,8 @@
 class_name Opt
 
-var _data
+var _data: Variant
 
-func _init(data=null):
+func _init(data: Variant = null) -> void:
 	_data = data
 
 func is_null() -> bool:
@@ -42,11 +42,20 @@ func inspect(f: Callable) -> Opt:
 		f.call(_data)
 	return self
 
-func _to_string():
+func _to_string() -> String:
 	if is_null():
 		return "Null[]"
 	else:
 		return "Opt[%s]" % _data
 
+static func coalesce(data: Variant, if_null: Variant) -> Variant:
+	if data == null:
+		return if_null
+	else:
+		return data
+
+static func of(data: Variant) -> Opt:
+	return Opt.new(data)
+
 static func lazy(f: Callable) -> Callable:
-	return func(): return Opt.new(f.call())
+	return func() -> Opt: return Opt.new(f.call())

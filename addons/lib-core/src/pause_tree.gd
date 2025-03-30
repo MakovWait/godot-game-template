@@ -4,7 +4,7 @@ extends Node
 @onready var _tree_paused = LayeredObject.new(get_tree())
 
 func pause() -> Lock:
-	var handle = _tree_paused.add(
+	var handle = _tree_paused.add_layer(
 		func(x: SceneTree):
 			var prev = x.paused
 			x.paused = true

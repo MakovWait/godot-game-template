@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dykoss14aukky"]
+
+[ext_resource type="Script" uid="uid://bf4bm2p8evtie" path="res://addons/lib-core/src/components/error-label/error_label.gd" id="1_whx8u"]
+
+[node name="ErrorLabel" type="Label"]
+script = ExtResource("1_whx8u")

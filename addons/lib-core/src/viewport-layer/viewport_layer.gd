@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	_viewport.size = Vector2(
 		ProjectSettings.get_setting("display/window/size/viewport_width"),
-		ProjectSettings.get_setting("display/window/size/viewport_heihgt"),
+		ProjectSettings.get_setting("display/window/size/viewport_height"),
 	)
 	_viewport.transparent_bg = true
 	_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
@@ -39,3 +39,7 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	custom_viewport = _default_viewport
+
+
+func viewport_texture() -> Texture2D:
+	return _viewport.get_texture()

@@ -4,6 +4,7 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 // Anti fish eye (negative amount) / fish eye (positive)
 uniform float effect_amount : hint_range(-2.5, 2.5) = 1.0;
+uniform bool antialiasing = false;
 
 void fragment() {
 	// glsl -> godot shader
@@ -52,7 +53,15 @@ void fragment() {
 		uv = p;
     uv.y *= prop;
 
-	vec3 col = texture(SCREEN_TEXTURE, uv).rgb;
+	vec3 col;
+	if (antialiasing) {
+		col = texture(SCREEN_TEXTURE, uv).rgb;
+	} else {
+		// https://github.com/godotengine/godot/issues/66764#issuecomment-1336208956
+		vec2 screenSize = vec2(textureSize(SCREEN_TEXTURE, 0));
+		ivec2 uvPixel = ivec2( int(uv.x*screenSize.x), int(uv.y*screenSize.y) );
+		col = texelFetch(SCREEN_TEXTURE, uvPixel, 0).rgb;
+	}
 
 	COLOR = vec4(col, 1.0);
 }

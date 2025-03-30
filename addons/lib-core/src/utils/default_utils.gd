@@ -40,3 +40,24 @@ static func lerpf_smoothing(
 	from: float, to: float, dt: float, t: float, p: float = 0.01
 ) -> float:
 	return lerp_smoothing(from, to, dt, t, p)
+
+
+static func connect_with_token(s: Signal, callable: Callable, flags: int = 0) -> Callable:
+	s.connect(callable, flags)
+	return func() -> void:
+		s.disconnect(callable)
+
+
+static func random_dir(from := 0.0, to := 2 * PI) -> Vector2:
+	var random_angle := randf_range(from, to)
+	var direction := Vector2(1, 0).rotated(random_angle)
+	return direction
+
+
+static func not_implemented() -> Variant:
+	assert(false, "Not Implemented!!")
+	return null
+
+
+static func readonly(value: Variant = null) -> void:
+	assert(false, "Setter is readonly")

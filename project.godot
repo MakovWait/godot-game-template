@@ -12,7 +12,7 @@ config_version=5
 
 config/name="game-template"
 run/main_scene="res://src/boot.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -44,7 +44,7 @@ project/assembly_name="game-template"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/expand-region/plugin.cfg", "res://addons/find-everywhere/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/lib-core/plugin.cfg", "res://addons/lib-game-plugins/plugin.cfg", "res://addons/lib-palette-importer/plugin.cfg", "res://addons/lib-scene-source/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/resource-viewer/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/use-context/plugin.cfg")
+enabled=PackedStringArray("res://addons/expand-region/plugin.cfg", "res://addons/find-everywhere/plugin.cfg", "res://addons/imrp/plugin.cfg", "res://addons/lib-core/plugin.cfg", "res://addons/lib-game-plugins/plugin.cfg", "res://addons/lib-palette-importer/plugin.cfg", "res://addons/lib-resource-lib/plugin.cfg", "res://addons/lib-scene-source/plugin.cfg", "res://addons/previous-tab/plugin.cfg", "res://addons/resource-viewer/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/use-context/plugin.cfg")
 
 [file_customization]
 
@@ -79,6 +79,11 @@ screenshot={
 restart_game={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+pause_game={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":true,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

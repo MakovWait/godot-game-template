@@ -4,8 +4,8 @@ extends Node
 @export var constants: Constants
 
 func _ready() -> void:
-	assert(G.Constants == null)
-	G.Constants = constants
+	assert(G.constants == null)
+	G.constants = constants
 
 	if not OS.is_debug_build():
 		get_window().mode = Window.MODE_FULLSCREEN

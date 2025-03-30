@@ -8,7 +8,12 @@ func _init(obj: Object) -> void:
 	_obj = obj
 
 
-func add(mod: Callable) -> LayerHandle:
+## [codeblock]
+## func(obj: Object) -> Callable:
+##     return func() -> void:
+##         pass
+## [/codeblock]
+func add_layer(mod: Callable) -> LayerHandle:
 	var is_added = _find_index(mod) != -1
 	assert(not is_added)
 	
@@ -19,7 +24,7 @@ func add(mod: Callable) -> LayerHandle:
 	return LayerHandle.new(applied_mod, self)
 
 
-func remove(mod_to_remove: Callable):
+func remove_layer(mod_to_remove: Callable):
 	var idx_to_remove = self._find_index(mod_to_remove)
 	var was_added = idx_to_remove > -1
 	assert(was_added)
@@ -36,7 +41,7 @@ func remove(mod_to_remove: Callable):
 		_mods[i].do()
 
 
-func replace(mod_to_replace: Callable):
+func replace_layer(mod_to_replace: Callable):
 	var idx_to_replace = self._find_index(mod_to_replace)
 	var was_added = idx_to_replace > -1
 	assert(was_added)
@@ -79,10 +84,10 @@ class LayerHandle:
 		_layers = layers
 	
 	func remove():
-		_layers.remove(_layer._mod)
+		_layers.remove_layer(_layer._mod)
 	
 	func replace():
-		_layers.replace(_layer._mod)
+		_layers.replace_layer(_layer._mod)
 
 
 class AppliedModifier:

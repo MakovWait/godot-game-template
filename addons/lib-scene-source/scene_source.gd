@@ -11,14 +11,22 @@ extends Resource
 			notify_property_list_changed()
 
 
-var _overrides = _OverriddenProperties.new()
+var _overrides := _OverriddenProperties.new()
 var _deserialized = {}
 
 
 func instantiate() -> Node:
 	var node = _origin_scene.instantiate()
 	for name in _deserialized.keys():
-		node.set(name, _deserialized[name])
+		var value := node.get(name)
+		# for some reason Godot treats typed array in _deserialized[name] as untyped
+		# that is why node.set(name, _deserialized[name]) does not work 
+		# (Array is not able to be asssigne to Array[T])
+		if value is Array:
+			var deserialized_value := _deserialized[name] as Array
+			value.append_array(deserialized_value)
+		else:
+			node.set(name, _deserialized[name])
 	return node
 
 

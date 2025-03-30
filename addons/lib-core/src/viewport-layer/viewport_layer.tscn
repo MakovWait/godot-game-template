@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqao4dfnthsli"]
 
-[ext_resource type="Script" path="res://addons/lib-core/src/viewport-layer/viewport_layer.gd" id="1_7pc6p"]
+[ext_resource type="Script" uid="uid://beltdovq0fkak" path="res://addons/lib-core/src/viewport-layer/viewport_layer.gd" id="1_7pc6p"]
 
 [node name="ViewportLayer" type="CanvasLayer" node_paths=PackedStringArray("_viewport", "_root", "_camera")]
 script = ExtResource("1_7pc6p")

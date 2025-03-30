@@ -57,3 +57,6 @@ sandbox/
 
 !/addons/lib-core/src/debug
 !/builds/.gdignore
+
+.DS_Store
+/icon/gif/result/*

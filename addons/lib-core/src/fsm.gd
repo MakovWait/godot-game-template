@@ -130,6 +130,15 @@ class State extends IState:
 		_on_physics_process = callable
 		return self
 
+	func on_enter_effect(callable: Callable) -> State:
+		_on_enter = func():
+			var cleanup: Variant = callable.call()
+			if cleanup is Callable:
+				_on_exit = func():
+					cleanup.call()
+					_on_exit = func(): pass
+		return self
+
 	func on_enter(callable: Callable) -> State:
 		_on_enter = callable
 		return self

@@ -21,12 +21,20 @@ func reset_to_default() -> void:
 	_max_value = _default_max_value
 
 
+func reload() -> void:
+	_value = 0
+
+
 func inc() -> void:
 	_value += 1
 
 
 func value() -> int:
 	return _value
+
+
+func is_zero() -> bool:
+	return _value == 0
 
 
 func remaining() -> int:

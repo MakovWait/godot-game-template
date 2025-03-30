@@ -62,3 +62,17 @@ func _use_tool_submenu_item(name: String, submenu: PopupMenu) -> void:
 	on_cleanup(func():
 		remove_tool_menu_item(name)
 	)
+
+
+func _use_control_in_container(container: CustomControlContainer, control: Control) -> void:
+	add_control_to_container(container, control)
+	on_cleanup(func():
+		remove_control_from_container(container, control)
+	)
+
+
+func bind_node(node: Node) -> Node:
+	on_cleanup(func() -> void:
+		node.queue_free()
+	)
+	return node

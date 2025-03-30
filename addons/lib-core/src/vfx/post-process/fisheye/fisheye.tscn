@@ -1,11 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://lnbs5g3qci6s"]
 
-[ext_resource type="Shader" path="res://addons/lib-core/shaders/fisheye.gdshader" id="1_4lwpd"]
-[ext_resource type="Script" path="res://addons/lib-core/src/vfx/post-process/fisheye/fisheye.gd" id="1_bytdd"]
+[ext_resource type="Shader" uid="uid://c7u7bh4epl2f8" path="res://addons/lib-core/shaders/fisheye.gdshader" id="1_4lwpd"]
+[ext_resource type="Script" uid="uid://boa57dbb8c3gm" path="res://addons/lib-core/src/vfx/post-process/fisheye/fisheye.gd" id="1_bytdd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iuqwm"]
+resource_local_to_scene = true
 shader = ExtResource("1_4lwpd")
-shader_parameter/effect_amount = 1.2
+shader_parameter/effect_amount = 1.0
+shader_parameter/antialiasing = false
 
 [node name="Fisheye" type="CanvasLayer"]
 script = ExtResource("1_bytdd")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ResourceLib" load_steps=2 format=3 uid="uid://cebblwm6vltrm"]
+
+[ext_resource type="Script" uid="uid://t5jnhbu8uq5l" path="res://addons/lib-resource-lib/resource_lib.gd" id="1_rj25e"]
+
+[resource]
+script = ExtResource("1_rj25e")
+_resource_paths = Array[String]([])
