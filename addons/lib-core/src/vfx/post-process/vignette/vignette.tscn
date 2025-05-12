@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://jd0pdntdhwe7"]
 
 [ext_resource type="Shader" uid="uid://55yb22upjton" path="res://addons/lib-core/shaders/vignette.gdshader" id="1_1j6v5"]
-[ext_resource type="Script" uid="uid://dnbf2kvkqnmqw" path="res://addons/lib-core/src/vfx/post-process/vignette/vignette.gd" id="1_gmhhn"]
+[ext_resource type="Script" uid="uid://bapd52256e86a" path="res://addons/lib-core/src/vfx/post-process/vignette/vignette.gd" id="1_gmhhn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjaa"]
 resource_local_to_scene = true

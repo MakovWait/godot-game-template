@@ -1,12 +1,18 @@
-class_name Trait
-
 ## [codeblock]
 ## func __trait_table__() -> Dictionary[Script, Object]:
 ##     pass
 ## [/codeblock]
+class_name Trait
 
 
 static func trait_obj_as(obj: Object, script: Script) -> Object:
+	var result := trait_obj_as_trict(obj, script)
+	if result == null:
+		result = trait_obj_as_subtype(obj, script)
+	return result
+
+
+static func trait_obj_as_trict(obj: Object, script: Script) -> Object:
 	var trait_table := _load_traits(obj)
 	return trait_table.get(script, null)
 

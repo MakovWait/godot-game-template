@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1ecirp82gbpf"]
 
-[ext_resource type="Script" uid="uid://cikj10m1o1ee1" path="res://addons/lib-core/src/vfx/post-process/chromatic-abberation/chromatic_abberation.gd" id="1_55dsy"]
+[ext_resource type="Script" uid="uid://djnuurx8i5k0f" path="res://addons/lib-core/src/vfx/post-process/chromatic-abberation/chromatic_abberation.gd" id="1_55dsy"]
 [ext_resource type="Shader" uid="uid://b7rw5cvvbh6f6" path="res://addons/lib-core/shaders/chromatic_abberation.gdshader" id="2_pbvme"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjaa"]

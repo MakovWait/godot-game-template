@@ -61,3 +61,9 @@ static func not_implemented() -> Variant:
 
 static func readonly(value: Variant = null) -> void:
 	assert(false, "Setter is readonly")
+
+
+static func set_mouse_filter_recursive(c: Control, mouse_filter: Control.MouseFilter) -> void:
+	c.mouse_filter = mouse_filter
+	for child in c.get_children():
+		set_mouse_filter_recursive(child, mouse_filter)

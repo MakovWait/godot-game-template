@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://1n5ancoab2nf"]
 
-[ext_resource type="Script" uid="uid://bc7ia2hhwekpt" path="res://addons/lib-core/src/current-scene/current_scene.gd" id="1_4vmbr"]
+[ext_resource type="Script" uid="uid://cep8kbqjny6ci" path="res://addons/lib-core/src/current-scene/current_scene.gd" id="1_4vmbr"]
 
 [node name="CurrentScene" type="Node"]
 process_mode = 3
