@@ -2,6 +2,9 @@ class_name ViewportLayer
 extends CanvasLayer
 
 
+@export var _camera_to_follow: Camera2D
+
+
 @export_group("Internal")
 @export var _viewport: SubViewport
 @export var _root: Node2D
@@ -31,6 +34,11 @@ func _ready() -> void:
 	_camera.position_smoothing_enabled = true
 	follow_viewport_enabled = false
 	follow_viewport_enabled = true
+	
+	if _camera_to_follow != null:
+		var remote_camera := RemoteCamera2D.new()
+		remote_camera.setup("..", _camera)
+		_camera_to_follow.add_child(remote_camera)
 
 
 func _enter_tree() -> void:
