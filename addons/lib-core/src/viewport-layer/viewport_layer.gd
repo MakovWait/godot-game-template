@@ -3,6 +3,7 @@ extends CanvasLayer
 
 
 @export var _camera_to_follow: Camera2D
+@export var _camera_pos_smoothing_enabled := true
 
 
 @export_group("Internal")
@@ -31,7 +32,7 @@ func _ready() -> void:
 	offset = Vector2.ZERO
 	#offset = custom_viewport_override.size / 2
 	_camera.custom_viewport = _viewport
-	_camera.position_smoothing_enabled = true
+	_camera.position_smoothing_enabled = _camera_pos_smoothing_enabled
 	follow_viewport_enabled = false
 	follow_viewport_enabled = true
 	
