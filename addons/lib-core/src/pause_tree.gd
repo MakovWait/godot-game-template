@@ -25,3 +25,7 @@ class Lock:
 	
 	func release():
 		_handle.remove()
+	
+	func release_safe():
+		if _handle.exists():
+			_handle.remove()

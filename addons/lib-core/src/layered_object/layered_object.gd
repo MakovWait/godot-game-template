@@ -24,6 +24,11 @@ func add_layer(mod: Callable) -> LayerHandle:
 	return LayerHandle.new(applied_mod, self)
 
 
+func has_layer(mod_to_remove: Callable) -> bool:
+	var idx = self._find_index(mod_to_remove)
+	return idx > -1
+
+
 func remove_layer(mod_to_remove: Callable):
 	var idx_to_remove = self._find_index(mod_to_remove)
 	var was_added = idx_to_remove > -1
@@ -87,9 +92,12 @@ class LayerHandle:
 		_layer.set_debug_name(name)
 		return self
 	
+	func exists() -> bool:
+		return _layers.has_layer(_layer._mod)
+	
 	func remove():
 		_layers.remove_layer(_layer._mod)
-	
+
 	func replace():
 		_layers.replace_layer(_layer._mod)
 
