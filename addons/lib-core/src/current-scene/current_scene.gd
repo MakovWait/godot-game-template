@@ -4,9 +4,12 @@ extends Node
 var INSTANT_TRANSITION: SceneTransition = SceneTransition.Instant.new()
 var _restart: Restart
 var _pause_lock
+var _active: bool
 
 
 func change_to(path: String, transition: SceneTransition=INSTANT_TRANSITION, args: Dictionary={}):
+	assert(_active == false)
+	_active = true
 	_save_restart_data(path, args)
 	_pause_tree()
 	transition.add_to(self)
@@ -19,7 +22,10 @@ func change_to(path: String, transition: SceneTransition=INSTANT_TRANSITION, arg
 			get_tree().change_scene_to_packed(scene)
 			await get_tree().process_frame
 			var finish = func():
-				transition.fade_out(func(): _unpause_tree())
+				transition.fade_out(func(): 
+					_unpause_tree()
+					_active = false
+				)
 			if _current_scene_is_setup_able():
 				get_tree().current_scene.setup(args, finish)
 			else:
@@ -41,7 +47,7 @@ func _save_restart_data(path, args):
 
 
 func _pause_tree():
-	_pause_lock = PauseTree.pause()
+	_pause_lock = PauseTree.pause("current_scene")
 
 
 func _unpause_tree():

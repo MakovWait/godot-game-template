@@ -83,6 +83,10 @@ class LayerHandle:
 		_layer = layer
 		_layers = layers
 	
+	func set_debug_name(name: String) -> LayerHandle:
+		_layer.set_debug_name(name)
+		return self
+	
 	func remove():
 		_layers.remove_layer(_layer._mod)
 	
@@ -94,10 +98,14 @@ class AppliedModifier:
 	var _mod: Callable
 	var _obj: Object
 	var _undo: Callable
+	var _debug_name: String
 	
 	func _init(obj: Object, mod: Callable) -> void:
 		self._obj = obj
 		self._mod = mod
+	
+	func set_debug_name(name: String) -> void:
+		_debug_name = name
 	
 	func do():
 		_undo = _mod.call(_obj)
