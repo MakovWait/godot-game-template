@@ -11,6 +11,11 @@ extends Resource
 var _args: Dictionary = {}
 
 
+@export_tool_button("Edit Script") var _open_script_action := func() -> void:
+	if _script != null:
+		SafeEditorInterface.edit_script(_script)
+
+
 func instantiate() -> Object:
 	var instance := _script.call("new", _args)
 	for key: String in _args.keys():
