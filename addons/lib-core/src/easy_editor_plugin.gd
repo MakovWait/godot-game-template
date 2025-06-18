@@ -71,6 +71,13 @@ func _use_control_in_container(container: CustomControlContainer, control: Contr
 	)
 
 
+func _use_control_in_bottom_panel(control: Control, title: String, shortcut: Shortcut = null) -> void:
+	add_control_to_bottom_panel(control, title, shortcut)
+	on_cleanup(func():
+		remove_control_from_bottom_panel(control)
+	)
+
+
 func bind_node(node: Node) -> Node:
 	on_cleanup(func() -> void:
 		node.queue_free()
