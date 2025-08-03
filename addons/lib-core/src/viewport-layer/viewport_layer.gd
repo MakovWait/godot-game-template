@@ -12,10 +12,15 @@ extends CanvasLayer
 @export var _camera: Camera2D
 
 var _default_viewport: Viewport
+var _remote_camera: RemoteCamera2D
 
 
 func root() -> Node2D:
 	return _root
+
+## may be null
+func remote_camera() -> RemoteCamera2D:
+	return _remote_camera
 
 
 func _ready() -> void:
@@ -37,9 +42,9 @@ func _ready() -> void:
 	follow_viewport_enabled = true
 	
 	if _camera_to_follow != null:
-		var remote_camera := RemoteCamera2D.new()
-		remote_camera.setup("..", _camera)
-		_camera_to_follow.add_child(remote_camera)
+		_remote_camera = RemoteCamera2D.new()
+		_remote_camera.setup("..", _camera)
+		_camera_to_follow.add_child(_remote_camera)
 
 
 func _enter_tree() -> void:

@@ -13,3 +13,4 @@ _camera = NodePath("SubViewport/Camera2D")
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport"]
+process_mode = 3
