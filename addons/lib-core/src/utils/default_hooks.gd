@@ -15,8 +15,8 @@ static func use_timer(node: Node) -> Timer:
 static func use_oneshot_timer(node: Node) -> Timer:
 	var timer := Timer.new()
 	timer.one_shot = true
-	timer.owner = node
 	node.add_child(timer)
+	timer.owner = node
 	return timer
 
 
