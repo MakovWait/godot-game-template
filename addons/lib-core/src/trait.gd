@@ -6,6 +6,8 @@ class_name Trait
 
 
 static func trait_obj_as(obj: Object, script: Script) -> Object:
+	if script.instance_has(obj):
+		return obj
 	var result := trait_obj_as_strict(obj, script)
 	if result == null:
 		result = trait_obj_as_subtype(obj, script)
@@ -26,9 +28,11 @@ static func trait_obj_as_subtype(obj: Object, script: Script) -> Object:
 
 
 static func preload_traits(obj: Object) -> void:
-	assert(obj.has_method("__trait_table__"))
-	var trait_table := obj.call("__trait_table__")
-	obj.set_meta("__trait_table_cache__", trait_table)
+	if obj.has_method("__trait_table__"):
+		var trait_table := obj.call("__trait_table__")
+		obj.set_meta("__trait_table_cache__", trait_table)
+	else:
+		obj.set_meta("__trait_table_cache__", {} as Dictionary[Script, Object])
 
 
 static func _load_traits(obj: Object) -> Dictionary[Script, Object]:
