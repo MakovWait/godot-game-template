@@ -44,6 +44,11 @@ func _get(property: StringName):
 	return value
 
 
+func get_override(key: StringName, default: Variant = null) -> Variant:
+	assert(not Engine.is_editor_hint())
+	return _deserialized.get(key, default)
+
+
 func _set(property: StringName, value: Variant) -> bool:
 	if Engine.is_editor_hint():
 		_overrides\
